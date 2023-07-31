@@ -26,29 +26,21 @@ export class SmartTableComponent {
       confirmDelete: true,
     },
     columns: {
-      id: {
-        title: 'ID',
-        type: 'number',
-      },
-      firstName: {
-        title: 'First Name',
+      name: {
+        title: 'Nom entreprise',
         type: 'string',
       },
-      lastName: {
-        title: 'Last Name',
+      date: {
+        title: 'Date création',
         type: 'string',
       },
-      username: {
-        title: 'Username',
+      possibles: {
+        title: 'Don possibles',
         type: 'string',
       },
-      email: {
-        title: 'E-mail',
+      assigne: {
+        title: 'Collab assigne',
         type: 'string',
-      },
-      age: {
-        title: 'Age',
-        type: 'number',
       },
     },
   };

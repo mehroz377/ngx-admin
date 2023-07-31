@@ -29,24 +29,22 @@ export class EchartsPieComponent implements AfterViewInit, OnDestroy {
         },
         legend: {
           orient: 'vertical',
-          left: 'left',
-          data: ['USA', 'Germany', 'France', 'Canada', 'Russia'],
+          left: 'right',
+          data: ['Transformés en RDV', 'Perdue', 'Pas traités ou avancés'],
           textStyle: {
             color: echarts.textColor,
           },
         },
         series: [
           {
-            name: 'Countries',
+            name: 'Prospection',            
             type: 'pie',
             radius: '80%',
             center: ['50%', '50%'],
             data: [
-              { value: 335, name: 'Germany' },
-              { value: 310, name: 'France' },
-              { value: 234, name: 'Canada' },
-              { value: 135, name: 'Russia' },
-              { value: 1548, name: 'USA' },
+              { value: 10, name: 'Transformés en RDV' },
+              { value: 1, name: 'Perdue' },
+              { value: 2, name: 'Pas traités ou avancés' },
             ],
             itemStyle: {
               emphasis: {
