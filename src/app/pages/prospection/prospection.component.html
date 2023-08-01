@@ -5,16 +5,55 @@
         <nb-card-header [ngStyle]="{'text-align': 'center'}">Nombre de suspects enregistrés</nb-card-header>
         <nb-card-header [ngStyle]="{'text-align': 'center'}">13</nb-card-header>
         <nb-card-body>
-          <ngx-echarts-pie></ngx-echarts-pie>
+          <ngx-echarts-pie [pieData]="myData1" [pieName]="myName1"></ngx-echarts-pie>
         </nb-card-body>
       </nb-card>
     </div>
     <div class="col-lg-6">
       <nb-card>      
         <nb-card-body>
-          <ngx-smart-table></ngx-smart-table>
+          <ngx-smart-table [tableData]="myTableData1" [columnSettings]="myColumnSettings1"></ngx-smart-table>
         </nb-card-body>
       </nb-card>
     </div>
   </div>
   
+  <div class="row">
+    <div class="col-lg-6">
+      <nb-card>
+        <nb-card-header [ngStyle]="{'text-align': 'center'}">Don Possibles</nb-card-header>
+        <nb-card-header [ngStyle]="{'text-align': 'center'}">20 000€</nb-card-header>
+        <nb-card-body>
+          <ngx-echarts-pie [pieData]="myData2" [pieName]="myName2"></ngx-echarts-pie>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-lg-6">
+      <nb-card>
+        <nb-card-header [ngStyle]="{'text-align': 'center'}">Don Possibles</nb-card-header>
+        <nb-card-header [ngStyle]="{'text-align': 'center'}">500 000€</nb-card-header>
+        <nb-card-body>
+          <ngx-echarts-pie [pieData]="myData3" [pieName]="myName3"></ngx-echarts-pie>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <nb-card>
+        <nb-card-header [ngStyle]="{'text-align': 'center'}">Due 24/07/2024 au 31/07/2023</nb-card-header>
+        <nb-card-header [ngStyle]="{'text-align': 'center'}">Nombre de suspects a traiter</nb-card-header>
+        <nb-card-header [ngStyle]="{'text-align': 'center'}">4</nb-card-header>      
+        <nb-card-body>
+          <ngx-echarts-bar [barData]="myBarData" [barNames]="myBarNames"></ngx-echarts-bar>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-lg-6">
+      <nb-card>      
+        <nb-card-body>
+          <ngx-smart-table [tableData]="myTableData" [columnSettings]="myColumnSettings"></ngx-smart-table>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>

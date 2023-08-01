@@ -60,6 +60,7 @@ const components = [
   ],
   exports: [
     EchartsPieComponent,
+    EchartsBarComponent,
   ],
   declarations: [...routedComponents, ...components],
 })

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, Input } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 
 @Component({
@@ -10,6 +10,9 @@ import { NbThemeService } from '@nebular/theme';
 export class EchartsPieComponent implements AfterViewInit, OnDestroy {
   options: any = {};
   themeSubscription: any;
+
+  @Input() pieData: { value: number, name: string }[];
+  @Input() pieName: string;
 
   constructor(private theme: NbThemeService) {
   }
@@ -30,22 +33,18 @@ export class EchartsPieComponent implements AfterViewInit, OnDestroy {
         legend: {
           orient: 'vertical',
           left: 'right',
-          data: ['Transformés en RDV', 'Perdue', 'Pas traités ou avancés'],
+          data: this.pieData.map(item => item.name),
           textStyle: {
             color: echarts.textColor,
           },
         },
         series: [
           {
-            name: 'Prospection',            
+            name: this.pieName,
             type: 'pie',
             radius: '80%',
             center: ['50%', '50%'],
-            data: [
-              { value: 10, name: 'Transformés en RDV' },
-              { value: 1, name: 'Perdue' },
-              { value: 2, name: 'Pas traités ou avancés' },
-            ],
+            data: this.pieData,
             itemStyle: {
               emphasis: {
                 shadowBlur: 10,

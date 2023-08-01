@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, Input } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 
 @Component({
@@ -10,6 +10,9 @@ import { NbThemeService } from '@nebular/theme';
 export class EchartsBarComponent implements AfterViewInit, OnDestroy {
   options: any = {};
   themeSubscription: any;
+
+  @Input() barData: any[] = [];
+  @Input() barNames: string[] = [];
 
   constructor(private theme: NbThemeService) {
   }
@@ -38,7 +41,7 @@ export class EchartsBarComponent implements AfterViewInit, OnDestroy {
         xAxis: [
           {
             type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            data: this.barNames, // updated this line
             axisTick: {
               alignWithLabel: true,
             },
@@ -79,7 +82,7 @@ export class EchartsBarComponent implements AfterViewInit, OnDestroy {
             name: 'Score',
             type: 'bar',
             barWidth: '60%',
-            data: [10, 52, 200, 334, 390, 330, 220],
+            data: this.barData, // updated this line
           },
         ],
       };

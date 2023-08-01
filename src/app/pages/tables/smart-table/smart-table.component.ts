@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
-
-import { SmartTableData } from '../../../@core/data/smart-table';
 
 @Component({
   selector: 'ngx-smart-table',
   templateUrl: './smart-table.component.html',
   styleUrls: ['./smart-table.component.scss'],
 })
-export class SmartTableComponent {
+export class SmartTableComponent implements OnChanges {
+
+  @Input() tableData: any[] = [];
+  @Input() columnSettings: any = {};
 
   settings = {
     add: {
@@ -25,31 +26,16 @@ export class SmartTableComponent {
       deleteButtonContent: '<i class="nb-trash"></i>',
       confirmDelete: true,
     },
-    columns: {
-      name: {
-        title: 'Nom entreprise',
-        type: 'string',
-      },
-      date: {
-        title: 'Date création',
-        type: 'string',
-      },
-      possibles: {
-        title: 'Don possibles',
-        type: 'string',
-      },
-      assigne: {
-        title: 'Collab assigne',
-        type: 'string',
-      },
-    },
+    columns: {},
   };
 
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private service: SmartTableData) {
-    const data = this.service.getData();
-    this.source.load(data);
+  constructor() { }
+
+  ngOnChanges(): void {
+    this.settings.columns = this.columnSettings;
+    this.source.load(this.tableData);
   }
 
   onDeleteConfirm(event): void {
